@@ -1,18 +1,13 @@
-// 时间格式化函数
-// 创建补0函数
-function p(s) {
-  return s < 10 ? '0' + s : s
-}
-
-// 创建、格式化时间函数
+// 格式化时间函数
 export const formatTime = function() {
+  function p(s) {
+    return s < 10 ? '0' + s : s
+  } // 补零函数
   let time = new Date()
   let year = time.getFullYear()
   let month = time.getMonth() + 1
   let day = time.getDate()
-
-  // 格式化时间
-  return (year + '-' + p(month) + '-' + p(day))
+  return (year + '-' + p(month) + '-' + p(day)) // 格式化时间
 }
 // 1-9转 一-九
 export const numToWord = function(n) {
