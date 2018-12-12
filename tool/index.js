@@ -47,3 +47,28 @@ export const arrTo2 = function (arr, length) {
   }
   return bigArr
 }
+// 数组格式化
+/*
+例子：
+let arr = [1,2,3,5,7,8,9,11,12,14,16,18,19,20]
+输出  1-3 , 5 , 7-9 , 11-12 , 14 , 16 , 18-20
+*/
+export const _arr = function (arr) {
+  arr.sort(function (a, b) {
+    return a - b // 排序 默认由小到大
+  })
+  let str = ''
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === (arr[i-1] + 1) && arr[i] !== (arr[i+1] - 1)) {
+      str += `-${arr[i]} ,`
+    }
+    if (arr[i] !== (arr[i-1] + 1) && arr[i] === (arr[i+1] - 1)) {
+      str += ` ${arr[i]}`
+    }
+    if (arr[i] !== (arr[i-1] + 1) && arr[i] !== (arr[i+1] - 1)) {
+      str += ` ${arr[i]} ,`
+    }
+  }
+  str = str.slice(0, str.length - 1) // 去除末尾逗号
+  return str
+}
