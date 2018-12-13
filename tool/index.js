@@ -57,6 +57,7 @@ export const _arr = function (arr) {
   arr.sort(function (a, b) {
     return a - b // 排序 默认由小到大
   })
+  arr = [...new Set(arr)] // 数组去重
   let str = ''
   for (var i = 0; i < arr.length; i++) {
     if (arr[i] === (arr[i-1] + 1) && arr[i] !== (arr[i+1] - 1)) {
